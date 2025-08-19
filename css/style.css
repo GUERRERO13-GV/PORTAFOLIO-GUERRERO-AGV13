@@ -1,0 +1,263 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+a {
+    color: #00ffff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3 {
+    color: #00ffff;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 0;
+    margin: 0;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+nav ul li {
+    margin: 0 2rem;
+}
+
+main {
+    padding-top: 80px;
+}
+
+section {
+    padding: 4rem 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+    border-bottom: 1px solid #333;
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+/* Home Section */
+#home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+
+#home h1 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+#home p {
+    font-size: 1.5rem;
+    color: #aaa;
+}
+
+/* About Section */
+#about {
+    text-align: center;
+}
+
+#about p {
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #333;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.1);
+}
+
+/* Skills Section */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.skill {
+    background-color: #1e1e1e;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #333;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+}
+
+.skill:hover {
+    border-color: #00ffff;
+    transform: translateY(-5px);
+}
+
+.skill i {
+    font-size: 3rem;
+    color: #00ffff;
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 2rem auto;
+    gap: 1rem;
+}
+
+#contact input, #contact textarea {
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+#contact button {
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #00ffff;
+    color: #121212;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#contact button:hover {
+    background-color: #00cccc;
+}
+
+.social-links {
+    margin-top: 2rem;
+}
+
+.social-links a {
+    margin: 0 1rem;
+    font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #aaa;
+}
+
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #00ffff;
+    color: #121212;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #home h1 {
+        font-size: 3rem;
+    }
+
+    #home p {
+        font-size: 1.2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+}
