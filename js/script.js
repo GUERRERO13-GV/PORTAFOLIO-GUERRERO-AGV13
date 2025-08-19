@@ -77,3 +77,33 @@ backToTopButton.addEventListener('click', (e) => {
         behavior: 'smooth'
     });
 });
+
+// Theme Switcher
+const themeSwitch = document.getElementById('checkbox');
+const body = document.body;
+
+function setTheme(theme) {
+    if (theme === 'light') {
+        body.classList.add('light-mode');
+        themeSwitch.checked = true;
+    } else {
+        body.classList.remove('light-mode');
+        themeSwitch.checked = false;
+    }
+}
+
+themeSwitch.addEventListener('change', () => {
+    if (body.classList.contains('light-mode')) {
+        body.classList.remove('light-mode');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// Check for saved theme in localStorage
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    setTheme(savedTheme);
+}

@@ -17,14 +17,23 @@
                 <li><a href="#skills">Habilidades</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+            </div>
         </nav>
     </header>
 
     <main>
         <section id="home">
             <div class="home-content">
-                <h1>Alejandro Guerrero Varo</h1>
-                <p>Técnico en informática y futuro administrador de sistemas</p>
+                <img src="https://github.com/GUERRERO13-GV.png" alt="Foto de perfil de Alejandro Guerrero Varo" class="profile-picture">
+                <div>
+                    <h1>Alejandro Guerrero Varo</h1>
+                    <p>Técnico en informática y futuro administrador de sistemas</p>
+                </div>
             </div>
         </section>
 
@@ -78,17 +87,11 @@
 
         <section id="contact">
             <h2>Contacto</h2>
-            <form>
-                <input type="text" name="name" placeholder="Nombre" required>
-                <input type="email" name="email" placeholder="Correo electrónico" required>
-                <textarea name="message" placeholder="Mensaje" required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
             <div class="social-links">
-                <a href="mailto:aguevar0109@gmail.com">Email</a>
-                <a href="https://github.com/GUERRERO13-GV" target="_blank">GitHub</a>
-                <a href="https://instagram.com/_aleegueerrero_" target="_blank">Instagram</a>
-                <a href="https://discordapp.com/users/_agv13_" target="_blank">Discord</a>
+                <a href="mailto:aguevar0109@gmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/GUERRERO13-GV" target="_blank" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://instagram.com/_aleegueerrero_" target="_blank" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://discordapp.com/users/_agv13_" target="_blank" class="social-icon" aria-label="Discord"><i class="fab fa-discord"></i></a>
             </div>
         </section>
     </main>
@@ -97,7 +100,7 @@
         <p>&copy; 2024 Alejandro Guerrero Varo</p>
     </footer>
 
-    <a href="#home" class="back-to-top">Subir</a>
+    <a href="#home" class="back-to-top" aria-label="Volver arriba"><i class="fas fa-arrow-up"></i></a>
 
     <script src="js/script.js"></script>
 </body>
