@@ -158,5 +158,3 @@ async function getGitHubRepos() {
         console.error('Error fetching GitHub repos:', error);
     }
 }
-
-getGitHubRepos();
