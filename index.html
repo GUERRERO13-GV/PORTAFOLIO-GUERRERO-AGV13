@@ -31,40 +31,94 @@
 
     <main>
         <section id="home">
-            <div class="home-content">
+            <div class="home-content professional-content">
                 <img src="https://github.com/GUERRERO13-GV.png" alt="Foto de perfil de Alejandro Guerrero Varo" class="profile-picture">
                 <div>
                     <h1>Alejandro Guerrero Varo</h1>
                     <p>Técnico en sistemas informáticos y en formación para futuro desarrollador web</p>
                 </div>
             </div>
+            <div class="home-content gamer-content" style="display: none;">
+                <img src="https://github.com/GUERRERO13-GV.png" alt="Foto de perfil de Alejandro Guerrero Varo" class="profile-picture">
+                <div>
+                    <h1>Alejandro Guerrero Varo</h1>
+                    <p>Jugador de Valorant y entusiasta de los eSports</p>
+                </div>
+            </div>
         </section>
 
         <section id="about">
-            <h2>Sobre mí</h2>
-            <p>Hola, me llamo Alejandro Guerrero Varo, soy técnico en informática con el Grado Medio de Sistemas Microinformáticos y Redes (SMR) finalizado y actualmente estudio Administración de Sistemas Informáticos en Red (ASIR).</p>
-            <p>Me apasiona el mundo de la informática, la ciberseguridad, el desarrollo web y la reparación de equipos. Siempre estoy aprendiendo y mejorando mis habilidades porque me gusta estar al día con las nuevas tecnologías. Además de la informática, soy gamer y paso parte de mi tiempo libre jugando a Valorant, un juego que me motiva a mejorar en estrategia, trabajo en equipo y concentración.</p>
+            <div class="professional-content">
+                <h2>Sobre mí</h2>
+                <p>Hola, me llamo Alejandro Guerrero Varo, soy técnico en informática con el Grado Medio de Sistemas Microinformáticos y Redes (SMR) finalizado y actualmente estudio Administración de Sistemas Informáticos en Red (ASIR).</p>
+                <p>Me apasiona el mundo de la informática, la ciberseguridad, el desarrollo web y la reparación de equipos. Siempre estoy aprendiendo y mejorando mis habilidades porque me gusta estar al día con las nuevas tecnologías. Además de la informática, soy gamer y paso parte de mi tiempo libre jugando a Valorant, un juego que me motiva a mejorar en estrategia, trabajo en equipo y concentración.</p>
+            </div>
+            <div class="gamer-content" style="display: none;">
+                <h2>Sobre mí</h2>
+                <p>Puntería fina, reflejos rápidos, pasión por Valorant.</p>
+            </div>
         </section>
 
         <section id="projects">
-            <h2>Mis Proyectos en GitHub</h2>
-            <div class="projects-grid">
-                <!-- Los proyectos de GitHub se cargarán aquí dinámicamente -->
+            <div class="professional-content">
+                <h2>Mis Proyectos en GitHub</h2>
+                <div class="projects-grid">
+                    <!-- Los proyectos de GitHub se cargarán aquí dinámicamente -->
+                </div>
+            </div>
+            <div class="gamer-content" style="display: none;">
+                <h2>Logros en Valorant</h2>
+                <div class="achievements-grid">
+                    <div class="achievement-card rank-card">
+                        <h3>Rango Más Alto</h3>
+                        <img src="images/gold_rank.png" alt="Rango Oro 2">
+                        <p>Oro 2</p>
+                    </div>
+                    <div class="achievement-card role-card">
+                        <h3>Rol Principal</h3>
+                        <p>Duelista</p>
+                    </div>
+                </div>
+                <h3>Agentes Favoritos</h3>
+                <div class="agents-grid">
+                    <div class="agent-card">
+                        <img src="images/agent_jett.webp" alt="Jett">
+                        <p>Jett</p>
+                    </div>
+                    <div class="agent-card">
+                        <img src="images/agent_reyna.png" alt="Reyna">
+                        <p>Reyna</p>
+                    </div>
+                    <div class="agent-card">
+                        <img src="images/agent_gekko.png" alt="Gekko">
+                        <p>Gekko</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="skills">
-            <h2>Habilidades</h2>
-            <div class="skills-grid">
-                <div class="skill"><i class="fab fa-html5"></i><span>HTML</span></div>
-                <div class="skill"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
-                <div class="skill"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
-                <div class="skill"><i class="fab fa-php"></i><span>PHP</span></div>
-                <div class="skill"><i class="fas fa-database"></i><span>MySQL</span></div>
-                <div class="skill"><i class="fab fa-wordpress"></i><span>WordPress</span></div>
-                <div class="skill"><i class="fab fa-windows"></i><span>Windows</span></div>
-                <div class="skill"><i class="fab fa-linux"></i><span>Linux</span></div>
-                <div class="skill"><i class="fas fa-server"></i><span>Windows Server</span></div>
+            <div class="professional-content">
+                <h2>Habilidades</h2>
+                <div class="skills-grid">
+                    <div class="skill"><i class="fab fa-html5"></i><span>HTML</span></div>
+                    <div class="skill"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
+                    <div class="skill"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+                    <div class="skill"><i class="fab fa-php"></i><span>PHP</span></div>
+                    <div class="skill"><i class="fas fa-database"></i><span>MySQL</span></div>
+                    <div class="skill"><i class="fab fa-wordpress"></i><span>WordPress</span></div>
+                    <div class="skill"><i class="fab fa-windows"></i><span>Windows</span></div>
+                    <div class="skill"><i class="fab fa-linux"></i><span>Linux</span></div>
+                    <div class="skill"><i class="fas fa-server"></i><span>Windows Server</span></div>
+                </div>
+            </div>
+            <div class="gamer-content" style="display: none;">
+                <h2>Habilidades en Juego</h2>
+                <div class="skills-grid">
+                    <div class="skill"><i class="fas fa-crosshairs"></i><span>Puntería</span></div>
+                    <div class="skill"><i class="fas fa-users"></i><span>Trabajo en Equipo</span></div>
+                    <div class="skill"><i class="fas fa-brain"></i><span>Estrategia</span></div>
+                </div>
             </div>
         </section>
 

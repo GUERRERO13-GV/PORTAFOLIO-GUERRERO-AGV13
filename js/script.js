@@ -82,31 +82,38 @@ backToTopButton.addEventListener('click', (e) => {
 const themeSwitch = document.getElementById('checkbox');
 const body = document.body;
 
-function setTheme(theme) {
-    if (theme === 'light') {
-        body.classList.add('light-mode');
+function setMode(mode) {
+    const professionalContent = document.querySelectorAll('.professional-content');
+    const gamerContent = document.querySelectorAll('.gamer-content');
+
+    if (mode === 'gamer') {
+        body.classList.add('gamer-mode');
+        body.classList.remove('professional-mode');
+        professionalContent.forEach(el => el.style.display = 'none');
+        gamerContent.forEach(el => el.style.display = 'block');
         themeSwitch.checked = true;
-    } else {
-        body.classList.remove('light-mode');
+    } else { // Professional mode
+        body.classList.remove('gamer-mode');
+        body.classList.add('professional-mode');
+        professionalContent.forEach(el => el.style.display = 'block');
+        gamerContent.forEach(el => el.style.display = 'none');
         themeSwitch.checked = false;
+        // Ensure GitHub repos are loaded if they haven't been
+        if (!document.querySelector('.projects-grid').hasChildNodes()) {
+            getGitHubRepos();
+        }
     }
 }
 
 themeSwitch.addEventListener('change', () => {
-    if (body.classList.contains('light-mode')) {
-        body.classList.remove('light-mode');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        body.classList.add('light-mode');
-        localStorage.setItem('theme', 'light');
-    }
+    const mode = themeSwitch.checked ? 'gamer' : 'professional';
+    localStorage.setItem('portfolioMode', mode);
+    setMode(mode);
 });
 
-// Check for saved theme in localStorage
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-    setTheme(savedTheme);
-}
+// Check for saved mode in localStorage
+const savedMode = localStorage.getItem('portfolioMode') || 'professional';
+setMode(savedMode);
 
 // Fetch GitHub Repos
 async function getGitHubRepos() {
