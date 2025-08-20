@@ -121,19 +121,28 @@ async function getGitHubRepos() {
     const username = 'GUERRERO13-GV';
     const url = `https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`;
 
+    // Mostrar mensaje de carga
+    projectsGrid.innerHTML = '<p>Cargando proyectos...</p>';
+
     try {
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const repos = await response.json();
 
-        projectsGrid.innerHTML = ''; // Clear loader or placeholder
+        let repos = await response.json();
+
+        // Filtrar repos públicos y que no sean forks
+        repos = repos.filter(repo => !repo.fork);
+
+        projectsGrid.innerHTML = ''; // Limpiar mensaje de carga
 
         if (repos.length === 0) {
-            projectsGrid.innerHTML = '<p>No se encontraron proyectos en GitHub.</p>';
+            projectsGrid.innerHTML = `<p>No se encontraron proyectos en GitHub. Puedes verlos en <a href="https://github.com/${username}" target="_blank">tu perfil</a>.</p>`;
             return;
         }
+
+        const fragment = document.createDocumentFragment();
 
         repos.forEach(repo => {
             const projectCard = document.createElement('a');
@@ -150,11 +159,16 @@ async function getGitHubRepos() {
                     <span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
                 </div>
             `;
-            projectsGrid.appendChild(projectCard);
+            fragment.appendChild(projectCard);
         });
 
+        projectsGrid.appendChild(fragment);
+
     } catch (error) {
-        projectsGrid.innerHTML = `<p>No se pudieron cargar los proyectos de GitHub en este momento. Puedes verlos directamente en <a href="https://github.com/${username}" target="_blank">el perfil de GitHub</a>.</p>`;
+        projectsGrid.innerHTML = `<p>No se pudieron cargar los proyectos de GitHub. Puedes verlos directamente en <a href="https://github.com/${username}" target="_blank">tu perfil</a>.</p>`;
         console.error('Error fetching GitHub repos:', error);
     }
 }
+
+// Llamar a la función
+getGitHubRepos();
