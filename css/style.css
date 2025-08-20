@@ -413,15 +413,6 @@ footer {
     filter: drop-shadow(0 0 8px var(--shadow-color));
 }
 
-.favorite-game {
-    grid-column: 1 / -1;
-    min-height: 200px;
-}
-
-.favorite-game img {
-    max-height: 150px;
-}
-
 .achievements-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -436,6 +427,10 @@ footer {
     padding: 1.5rem;
     text-align: center;
     transition: all 0.3s ease;
+}
+
+.achievement-card p, .agent-card p {
+    font-weight: bold;
 }
 
 .achievement-card:hover, .agent-card:hover {
@@ -458,6 +453,15 @@ footer {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 1rem;
+}
+
+.valorant-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: -2rem auto 2rem auto;
+    padding: 0 2rem;
+    color: var(--secondary-text-color);
+    font-style: italic;
 }
 
 /* Responsive Design */
