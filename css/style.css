@@ -102,18 +102,23 @@ header {
 .slider i {
     color: var(--primary-color);
     transition: opacity 0.4s;
+    z-index: 1;
+}
+
+.slider .fa-moon {
+    opacity: 1;
 }
 
 .slider .fa-sun {
     opacity: 0;
 }
 
-.light-mode .slider .fa-sun {
-    opacity: 1;
-}
-
 .light-mode .slider .fa-moon {
     opacity: 0;
+}
+
+.light-mode .slider .fa-sun {
+    opacity: 1;
 }
 
 .slider:before {
@@ -229,9 +234,34 @@ section:last-of-type {
     border-radius: 10px 10px 0 0;
 }
 
+.project-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
 .project-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px -5px var(--accent-color-blue);
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.repo-stats {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+}
+
+.repo-stats span i {
+    margin-right: 0.3rem;
+    color: var(--primary-color);
 }
 
 /* Skills Section */
@@ -263,6 +293,10 @@ section:last-of-type {
 
 .skill i {
     font-size: 3rem;
+    color: var(--accent-color-blue);
+}
+
+.light-mode .skill i {
     color: var(--primary-color);
 }
 
@@ -272,11 +306,11 @@ section:last-of-type {
 }
 
 .social-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
     margin-top: 2rem;
+    justify-items: center;
 }
 
 .social-link-item {
@@ -290,7 +324,7 @@ section:last-of-type {
     padding: 0.8rem 1.5rem;
     border-radius: 10px;
     border: 1px solid var(--border-color);
-    width: 300px;
+    width: 320px;
     max-width: 100%;
     transition: all 0.3s ease;
 }
@@ -356,6 +390,16 @@ footer {
 }
 
 /* Responsive Design */
+@media (min-width: 768px) {
+    .social-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 @media (max-width: 768px) {
     .home-content {
         flex-direction: column;

@@ -107,3 +107,49 @@ const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
     setTheme(savedTheme);
 }
+
+// Fetch GitHub Repos
+async function getGitHubRepos() {
+    const projectsGrid = document.querySelector('.projects-grid');
+    const username = 'GUERRERO13-GV';
+    const url = `https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const repos = await response.json();
+
+        projectsGrid.innerHTML = ''; // Clear loader or placeholder
+
+        if (repos.length === 0) {
+            projectsGrid.innerHTML = '<p>No se encontraron proyectos en GitHub.</p>';
+            return;
+        }
+
+        repos.forEach(repo => {
+            const projectCard = document.createElement('a');
+            projectCard.href = repo.html_url;
+            projectCard.target = '_blank';
+            projectCard.classList.add('project-card');
+
+            projectCard.innerHTML = `
+                <h3>${repo.name}</h3>
+                <p>${repo.description || 'Sin descripción.'}</p>
+                <div class="repo-stats">
+                    <span>${repo.language || 'N/A'}</span>
+                    <span><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
+                    <span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
+                </div>
+            `;
+            projectsGrid.appendChild(projectCard);
+        });
+
+    } catch (error) {
+        projectsGrid.innerHTML = `<p>No se pudieron cargar los proyectos de GitHub. Error: ${error.message}</p>`;
+        console.error('Error fetching GitHub repos:', error);
+    }
+}
+
+getGitHubRepos();
