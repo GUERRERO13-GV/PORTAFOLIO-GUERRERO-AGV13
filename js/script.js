@@ -147,7 +147,7 @@ async function getGitHubRepos() {
         });
 
     } catch (error) {
-        projectsGrid.innerHTML = `<p>No se pudieron cargar los proyectos de GitHub. Error: ${error.message}</p>`;
+        projectsGrid.innerHTML = `<p>No se pudieron cargar los proyectos de GitHub en este momento. Puedes verlos directamente en <a href="https://github.com/${username}" target="_blank">el perfil de GitHub</a>.</p>`;
         console.error('Error fetching GitHub repos:', error);
     }
 }
