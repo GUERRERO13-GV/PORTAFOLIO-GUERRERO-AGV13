@@ -1,24 +1,26 @@
 /* General Styles */
 :root {
-    --bg-color: #121212;
-    --text-color: #ffffff;
+    --bg-color: #0a192f; /* Dark Navy Blue */
+    --text-color: #ccd6f6; /* Light Slate */
     --primary-color: #FFFF00; /* Electric Yellow */
-    --secondary-bg-color: #1e1e1e;
-    --border-color: #333333;
-    --secondary-text-color: #aaa;
-    --header-bg-color: rgba(18, 18, 18, 0.8);
-    --shadow-color: rgba(255, 255, 0, 0.1);
-    --button-text-color: #121212;
+    --accent-color-blue: #00BFFF; /* Deep Sky Blue */
+    --secondary-bg-color: #112240; /* Lighter Navy Blue */
+    --border-color: #233554;
+    --secondary-text-color: #8892b0; /* Slate */
+    --header-bg-color: rgba(10, 25, 47, 0.8);
+    --shadow-color: rgba(2, 12, 27, 0.7);
+    --button-text-color: #0a192f;
 }
 
 .light-mode {
-    --bg-color: #ffffff;
-    --text-color: #121212;
-    --primary-color: #000000;
-    --secondary-bg-color: #f4f4f4;
+    --bg-color: #f5f5f5;
+    --text-color: #111111;
+    --primary-color: #007BFF;
+    --accent-color-blue: #0056b3;
+    --secondary-bg-color: #ffffff;
     --border-color: #dddddd;
-    --secondary-text-color: #555;
-    --header-bg-color: rgba(255, 255, 255, 0.8);
+    --secondary-text-color: #555555;
+    --header-bg-color: rgba(245, 245, 245, 0.8);
     --shadow-color: rgba(0, 0, 0, 0.1);
     --button-text-color: #ffffff;
 }
@@ -61,10 +63,10 @@ header {
 
 /* Theme Switch */
 .theme-switch-wrapper {
-    display: flex;
-    align-items: center;
     position: absolute;
+    top: 100%; /* Position it just below the header */
     right: 2rem;
+    margin-top: 0.5rem; /* Add some space */
 }
 
 .theme-switch {
@@ -91,6 +93,27 @@ header {
     transition: .4s;
     border-radius: 34px;
     border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.slider i {
+    color: var(--primary-color);
+    transition: opacity 0.4s;
+}
+
+.slider .fa-sun {
+    opacity: 0;
+}
+
+.light-mode .slider .fa-sun {
+    opacity: 1;
+}
+
+.light-mode .slider .fa-moon {
+    opacity: 0;
 }
 
 .slider:before {
@@ -103,10 +126,7 @@ header {
     background-color: var(--secondary-text-color);
     transition: .4s;
     border-radius: 50%;
-}
-
-input:checked + .slider {
-    background-color: var(--secondary-bg-color);
+    z-index: 2;
 }
 
 input:checked + .slider:before {
@@ -165,7 +185,7 @@ section:last-of-type {
     height: 150px;
     border-radius: 50%;
     border: 3px solid var(--primary-color);
-    box-shadow: 0 0 15px var(--primary-color);
+    box-shadow: 0 0 20px var(--accent-color-blue);
 }
 
 #home h1 {
@@ -211,7 +231,7 @@ section:last-of-type {
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px var(--shadow-color);
+    box-shadow: 0 10px 20px -5px var(--accent-color-blue);
 }
 
 /* Skills Section */
@@ -236,8 +256,9 @@ section:last-of-type {
 }
 
 .skill:hover {
-    border-color: var(--primary-color);
+    border-color: var(--accent-color-blue);
     transform: translateY(-5px);
+    box-shadow: 0 5px 15px -5px var(--accent-color-blue);
 }
 
 .skill i {
@@ -252,31 +273,38 @@ section:last-of-type {
 
 .social-links {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
     margin-top: 2rem;
 }
 
-.social-icon {
+.social-link-item {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 80px;
-    height: 80px;
+    gap: 1rem;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    text-decoration: none;
     background-color: var(--secondary-bg-color);
-    border: 2px solid var(--border-color);
-    border-radius: 50%;
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    transition: all 0.3s;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    width: 300px;
+    max-width: 100%;
+    transition: all 0.3s ease;
 }
 
-.social-icon:hover {
-    background-color: var(--primary-color);
-    color: var(--button-text-color);
-    border-color: var(--primary-color);
+.social-link-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px var(--shadow-color);
+    border-color: var(--accent-color-blue);
+    box-shadow: 0 5px 15px -5px var(--accent-color-blue);
+    text-decoration: none;
+}
+
+.social-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
 }
 
 /* Footer */
